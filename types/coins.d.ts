@@ -3,6 +3,7 @@ export interface CoinsData {
   name?: string;
   nameid?: string;
   rank?: number;
+  symbol?: string;
   price_usd?: string;
   percent_change_24h?: string;
   percent_change_1h?: string;
