@@ -1,3 +1,4 @@
+import { formatValue } from "@/utils/formatNum";
 import { createColumnHelper } from "@tanstack/react-table";
 
 const columnHelper = createColumnHelper<any>();
@@ -37,7 +38,7 @@ export function ColumnsCoinFN() {
       header: ({ column }) => <p>🤑 Price</p>,
       cell: (info) => (
         <div>
-          <p>${info.row.original?.price_usd}</p>
+          <p>${formatValue(info.row.original?.price_usd)}</p>
         </div>
       ),
     }),
@@ -47,7 +48,7 @@ export function ColumnsCoinFN() {
       header: ({ column }) => <p>📉 Total Supply</p>,
       cell: (info) => (
         <div>
-          <p>{info.row.original?.tsupply}</p>
+          <p>{formatValue(info.row.original?.tsupply)}</p>
         </div>
       ),
     }),

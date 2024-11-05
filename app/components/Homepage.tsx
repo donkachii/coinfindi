@@ -91,7 +91,7 @@ const Homepage = () => {
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="bg-blue-400">
+                  <TableHead key={header.id} className="bg-blue-400 text-white text-md font-extrabold">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -140,7 +140,7 @@ const Homepage = () => {
           disabled={!table.getCanPreviousPage()}
           className="px-2 py-1 border rounded disabled:opacity-50"
         >
-          Previous
+          &lt;&lt; Previous
         </button>
         <span>
           Page{" "}
@@ -153,7 +153,7 @@ const Homepage = () => {
           disabled={!table.getCanNextPage()}
           className="px-2 py-1 border rounded disabled:opacity-50"
         >
-          Next
+          Next &gt;&gt;
         </button>
       </div>
     </div>
