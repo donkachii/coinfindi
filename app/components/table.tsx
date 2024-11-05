@@ -1,12 +1,13 @@
+import { CoinsData } from "@/types";
 import { formatValue } from "@/utils/formatNum";
 import { createColumnHelper } from "@tanstack/react-table";
 
-const columnHelper = createColumnHelper<any>();
+const columnHelper = createColumnHelper<CoinsData>();
 
 export function ColumnsCoinFN() {
   return [
     // Coin
-    columnHelper.accessor("coin", {
+    columnHelper.accessor("name", {
       header: () => (
         <div className="pl-6">
           <p>💰 Coin</p>
@@ -20,8 +21,8 @@ export function ColumnsCoinFN() {
     }),
 
     // Code
-    columnHelper.accessor("code", {
-      header: ({ column }) => (
+    columnHelper.accessor("nameid", {
+      header: () => (
         <div>
           <p>📄 Code</p>
         </div>
@@ -34,21 +35,21 @@ export function ColumnsCoinFN() {
     }),
 
     // Price
-    columnHelper.accessor("price", {
-      header: ({ column }) => <p>🤑 Price</p>,
+    columnHelper.accessor("price_usd", {
+      header: () => <p>🤑 Price</p>,
       cell: (info) => (
         <div>
-          <p>${formatValue(info.row.original?.price_usd)}</p>
+          <p>${formatValue(info.row.original?.price_usd || 0)}</p>
         </div>
       ),
     }),
 
     // Total Supply
-    columnHelper.accessor("total", {
-      header: ({ column }) => <p>📉 Total Supply</p>,
+    columnHelper.accessor("tsupply", {
+      header: () => <p>📉 Total Supply</p>,
       cell: (info) => (
         <div>
-          <p>{formatValue(info.row.original?.tsupply)}</p>
+          <p>{formatValue(info.row.original?.tsupply || 0)}</p>
         </div>
       ),
     }),

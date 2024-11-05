@@ -1,4 +1,8 @@
-export const formatValue = (value: number) => {
+export const formatValue = (value: string | Number) => {
+
+    if (value === undefined || value === null) {
+        return "N/A";
+      }
     const numericValue = Number(value);
     if (isNaN(numericValue)) {
         return "N/A";
