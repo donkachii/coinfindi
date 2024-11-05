@@ -27,7 +27,7 @@ const Homepage = () => {
   const [pageSize, setPageSize] = useState<number>(10);
   const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
   const [isLoading, setIsLoading] = useState<boolean>(false); // For loading state
-  const [error, setError] = useState<any>();
+  const [error, setError] = useState<string | null>(null);
 
   const fetchCoins = useCallback(async () => {
     setIsLoading(true);
@@ -43,7 +43,7 @@ const Homepage = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      setError(error);
+      setError("Failed to load data. Please try again.");
       console.error(error);
     }
   }, [pageIndex, pageSize]);
